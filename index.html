@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snowflake Analysis Chart</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <title>Snowflake Analysis Charts</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap');
 
         body {
             display: flex;
@@ -18,29 +17,38 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
         .container {
+            position: relative;
             width: 400px;
             height: 400px;
+        }
+        .chart {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <canvas id="snowflakeChart"></canvas>
+        <canvas id="snowflakeChart1" class="chart"></canvas>
+        <canvas id="snowflakeChart2" class="chart"></canvas>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const ctx = document.getElementById('snowflakeChart').getContext('2d');
-        const data = {
-            labels: ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5', 'Section 6'],
+        const ctx1 = document.getElementById('snowflakeChart1').getContext('2d');
+        const data1 = {
+            labels: ['VALUE', 'FUTURE', 'PAST', 'HEALTH', 'DIVIDEND'],
             datasets: [{
-                label: 'Radar Chart',
-                data: [3, 1, 2, 3, 1, 3],
+                label: 'Snowflake Analysis 1',
+                data: [3, 1, 2, 3, 1],
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
             }]
         };
-        const options = {
+        const options1 = {
             scales: {
                 r: {
                     angleLines: {
@@ -52,20 +60,67 @@
                         display: false
                     },
                     pointLabels: {
-                        color: '#fff'
+                        color: '#fff',
+                        font: {
+                            family: 'Plus Jakarta Sans',
+                            size: 14
+                        }
                     }
                 }
             },
             plugins: {
                 legend: {
-                    display: true
+                    display: false
                 }
             }
         };
-        const snowflakeChart = new Chart(ctx, {
+        const snowflakeChart1 = new Chart(ctx1, {
             type: 'radar',
-            data: data,
-            options: options
+            data: data1,
+            options: options1
+        });
+
+        const ctx2 = document.getElementById('snowflakeChart2').getContext('2d');
+        const data2 = {
+            labels: ['VALUE', 'FUTURE', 'PAST', 'HEALTH', 'DIVIDEND'],
+            datasets: [{
+                label: 'Snowflake Analysis 2',
+                data: [2, 3, 1, 4, 2],
+                backgroundColor: 'rgba(192, 75, 75, 0.2)',
+                borderColor: 'rgba(192, 75, 75, 1)',
+                borderWidth: 1
+            }]
+        };
+        const options2 = {
+            scales: {
+                r: {
+                    angleLines: {
+                        display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 5,
+                    ticks: {
+                        display: false
+                    },
+                    pointLabels: {
+                        color: '#fff',
+                        font: {
+                            family: 'Plus Jakarta Sans',
+                            size: 14
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        };
+        const snowflakeChart2 = new Chart(ctx2, {
+            type: 'radar',
+            data: data2,
+            options: options2
         });
     </script>
 </body>
