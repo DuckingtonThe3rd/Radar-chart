@@ -18,8 +18,8 @@
         }
         .container {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
         }
         .chart {
             position: absolute;
@@ -37,7 +37,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // First Chart
         const ctx1 = document.getElementById('snowflakeChart1').getContext('2d');
         const data1 = {
             labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5', 'Category 6', 'Category 7', 'Category 8', 'Category 9', 'Category 10'],
@@ -81,7 +80,6 @@
             options: options1
         });
 
-        // Second Chart
         const ctx2 = document.getElementById('snowflakeChart2').getContext('2d');
         const data2 = {
             labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5', 'Category 6', 'Category 7', 'Category 8', 'Category 9', 'Category 10'],
