@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowflake Analysis Chart</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2e2e2e;
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .container {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas id="snowflakeChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('snowflakeChart').getContext('2d');
+        const data = {
+            labels: ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5'],
+            datasets: [{
+                label: 'Snowflake Analysis',
+                data: [3, 1, 2, 3, 1],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+        const options = {
+            scales: {
+                r: {
+                    angleLines: {
+                        display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 5,
+                    ticks: {
+                        display: false
+                    },
+                    pointLabels: {
+                        color: '#fff'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        };
+        const snowflakeChart = new Chart(ctx, {
+            type: 'radar',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>
