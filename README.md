@@ -22,3 +22,6 @@ To add a section, you can just add another label to the `labels` dataset and ano
 
 #### Changing the color
 To change the color, you can just edit the `backgroundColor` and `borderColor` properties.
+
+## Website
+You can access it [here](https://duckingtonthe3rd.github.io/Radar-chart/)
