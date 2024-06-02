@@ -23,5 +23,54 @@ To add a section, you can just add another label to the `labels` dataset and ano
 #### Changing the color
 To change the color, you can just edit the `backgroundColor` and `borderColor` properties.
 
+#### Adding another chart
+```js
+const ctx2 = document.getElementById('snowflakeChart2').getContext('2d');
+const data2 = {
+  labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5', 'Category 6', 'Category 7', 'Category 8', 'Category 9', 'Category 10'],
+  datasets: [{
+    label: 'Snowflake Analysis 2',
+    data: [2.2, 3.6, 4.3, 1.8, 3.0, 2.7, 4.5, 1.5, 3.2, 2.9],
+    backgroundColor: 'rgba(192, 75, 75, 0.2)',
+    borderColor: 'rgba(192, 75, 75, 1)',
+    borderWidth: 1
+    }]
+};
+
+const options2 = {
+  scales: {
+    r: {
+      angleLines: {
+        display: false
+      },
+      suggestedMin: 0,
+      suggestedMax: 5,
+      ticks: {
+        display: false
+      },
+      pointLabels: {
+        color: '#fff',
+        font: {
+          family: 'Plus Jakarta Sans',
+          size: 14
+        }
+      }
+    }
+  },
+  plugins: {
+    legend: {
+      display: false
+    }
+  }
+};
+
+const snowflakeChart2 = new Chart(ctx2, {
+  type: 'radar',
+  data: data2,
+  options: options2
+});
+```
+To add another chart, you can simply copy the code above, and adding it inside the `script` tag ,editing the number, for ex. adding a third chart would mean you use `ctx3` instead of just `ctx`.
+
 ## Website
 You can access it [here.](https://duckingtonthe3rd.github.io/Radar-chart/)
